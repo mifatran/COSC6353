@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Select from "react-select";
 import DatePicker from "react-multi-date-picker";
+import { addDays } from "date-fns";
 
 const skillOptions = [
     { value: "Database Management", label: "Database Management" },
@@ -79,21 +80,23 @@ const stateOptions = [
 ];
 
 export default function Volunteer() {
-    const [selectedSkillOptions, setSelectedSkillOptions] = useState ([])
-    const handleSkillChange = (selectedSkillOptions) => {
+    const [selectedSkillOptions, setSelectedSkillOptions] = useState<string[]>([])
+    const handleSkillChange = (selectedSkillOptions: string[]) => {
         if (selectedSkillOptions.length <= 3) {
             setSelectedSkillOptions(selectedSkillOptions);
         }
     };
 
-    const [selectedStateOptions, setSelectedStateOptions] = useState ([])
-    const handleStateChange = (selectedStateOptions) => {
+    const [selectedStateOptions, setSelectedStateOptions] = useState<string[]>([])
+    const handleStateChange = (selectedStateOptions: string[]) => {
             setSelectedStateOptions(selectedStateOptions);
     };
 
-    const [selectedDates, setSelectedDates] = useState([])
-    const handleDateChange = (dates) => {
-        setSelectedDates(dates);
+    const [selectedDates, setSelectedDates] = useState<Date[]>([])
+    const handleDateChange = (dates: Date[]) => {
+        const filteredDates = dates.filter(date => date >= addDays(new Date(), 0));
+        const slicedDates = filteredDates.slice(0, 5);
+        setSelectedDates(slicedDates);
     };
 
     return (
@@ -205,8 +208,11 @@ export default function Volunteer() {
                             mode="multiple"
                             value={selectedDates}
                             onChange={handleDateChange}
+                            disabledDate={(date) => date < addDays(new Date(), 0)}
+                            showToday={false}
                         />
                         <p>Selected Dates: {selectedDates.map(date => date.format("MM/DD/YYYY")).join(", ")}</p>
+                        {selectedDates.length >= 5}
                     </div>
                     
             </div>
