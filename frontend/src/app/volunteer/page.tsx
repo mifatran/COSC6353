@@ -105,7 +105,7 @@ export default function Volunteer() {
                 <h2>username: </h2>
             <div className="flex flex-row w-full">
                 <h2 className="w-1/2 mb-2">password: </h2>
-                <button type="submit" className="w-1/5 border border-black">Change Password</button>
+                <button type="submit" className="bg-black text-white py-2 px-4 rounded">Change Password</button>
             </div>
                 <h2 className="font-bold">Full Name</h2>
             </div>
@@ -210,7 +210,7 @@ export default function Volunteer() {
                     </div>
                     
             </div>
-            <button type="submit" className="w-1/6 border border-black">Save</button>
+            <button type="submit" className="bg-black text-white py-2 px-4 rounded">Save</button>
         </div>
     );
 }
