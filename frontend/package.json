@@ -9,17 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-email/components": "^0.0.19",
-    "date-fns": "^3.6.0",
     "intl": "^1.2.5",
+    "date-fns": "^3.6.0",
     "multiselect-react-dropdown": "^2.0.25",
     "next": "^14.2.4",
     "react": "^18.3.1",
     "react-datepicker": "^7.1.0",
     "react-dom": "^18.3.1",
     "react-multi-date-picker": "^4.5.2",
-    "react-select": "^5.8.0",
-    "resend": "^3.3.0"
+    "react-select": "^5.8.0"
   },
   "devDependencies": {
     "@types/node": "^20",
